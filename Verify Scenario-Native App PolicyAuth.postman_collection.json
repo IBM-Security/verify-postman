@@ -1,0 +1,1753 @@
+{
+	"info": {
+		"_postman_id": "130a7e20-372f-4bc2-9dde-e2e490a57225",
+		"name": "Verify Scenario: Native App PolicyAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"item": [
+				{
+					"name": "Get Privileged Client Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59ce194a-b20f-4cdf-b413-cfcb4e2efcc2",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have access_token\", function() {",
+									"   pm.response.to.have.jsonBody(\"access_token\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"access_token\", jsonData.access_token);",
+									"   pm.environment.set(\"current_client_id\", pm.environment.get(\"client_id\"));",
+									"   pm.environment.set(\"current_client_secret\", pm.environment.get(\"client_secret\"));",
+									"});",
+									"",
+									"",
+									"pm.test(\"expect access_token to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"access_token\")).to.exist; ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Test User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b1721db8-b4bf-4208-9404-f601a8b6cfd0",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"expect status code to be 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to be JSON\", function() {",
+									"   pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"expect response body to contain id\", function() {",
+									"   pm.response.to.have.jsonBody(\"id\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"test_userid\", jsonData.id);",
+									"});",
+									"",
+									"pm.test(\"expect test_userid to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"test_userid\")).to.exist; ",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"schemas\": [\r\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\r\n\t\"urn:ietf:params:scim:schemas:extension:ibm:2.0:User\",\r\n\t\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\r\n  ],\r\n  \"userName\": \"{{test_username}}\",\r\n  \"password\": \"{{test_password}}\",\r\n  \"title\": \"End User\",\r\n  \"name\": {\r\n    \"familyName\": \"{{test_surname}}\",\r\n    \"givenName\": \"{{test_firstname}}\"\r\n  },\r\n  \"displayName\": \"{{test_firstname}} {{test_surname}}\",\r\n  \"preferredLanguage\": \"en-US\",\r\n  \"active\": true,\r\n  \"emails\": [\r\n    {\r\n      \"value\": \"{{test_email}}\",\r\n      \"type\": \"work\"\r\n    }\r\n  ],\r\n  \"phoneNumbers\": [\r\n    {\r\n      \"value\": \"{{test_phone}}\",\r\n      \"type\": \"mobile\"\r\n    }\r\n  ],\r\n  \"urn:ietf:params:scim:schemas:extension:ibm:2.0:User\": {\r\n    \"userCategory\": \"regular\",\r\n    \"twoFactorAuthentication\": false\r\n  },\r\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\r\n    \"department\": \"Test Users\",\r\n    \"employeeNumber\": \"012345\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/Users",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"Users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create TOTP (/authnmethods/totp) - adriana",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"owner\": \"50EGVUXX0E\",\n  \"isEnabled\": true,\n  \"ownerDisplayName\": \"adriana\"\n}"
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v1.0/authnmethods/totp/?qrcodeInResponse=true",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v1.0",
+										"authnmethods",
+										"totp",
+										""
+									],
+									"query": [
+										{
+											"key": "qrcodeInResponse",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 169.53.65.119:443",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Backside-Transport",
+									"value": "OK OK",
+									"name": "X-Backside-Transport",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Client-IP",
+									"value": "32.97.110.58",
+									"name": "X-Client-IP",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Global-Transaction-ID",
+									"value": "1321042401",
+									"name": "X-Global-Transaction-ID",
+									"description": "Custom header"
+								},
+								{
+									"key": "content-language",
+									"value": "en-US",
+									"name": "content-language",
+									"description": "The language the content is in"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json",
+									"name": "content-type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "date",
+									"value": "Tue, 14 Nov 2017 22:41:01 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "p3p",
+									"value": "CP=\"NON CUR OTPi OUR NOR UNI\"",
+									"name": "p3p",
+									"description": "This header is supposed to set P3P policy, in the form of P3P:CP=\"your_compact_policy\". However, P3P did not take off, most browsers have never fully implemented it, a lot of websites set this header with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "PBC5YS:463686615",
+									"key": "DPJSESSIONID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "1_2_0_8Hk2CDGVqMfOJVX4btbi2KdhF-NA3JYZA7S7GWyIIg3vXR40",
+									"key": "PD-S-SESSION-ID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_52272a24-c615-11e7-af7b-000c290debb6"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_59e74f82-c615-11e7-a0f6-000c292e073e"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": false,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_caa71e5a-c89a-11e7-a0f6-000c292e073e"
+								}
+							],
+							"body": "{\"owner\":\"50EGVUXX0E\",\"methodType\":\"totp\",\"isValidated\":false,\"creationTime\":\"2017-11-14T22:41:01.263Z\",\"isEnabled\":true,\"attributes\":{\"period\":30,\"digits\":6,\"secret\":\"D4EQVJ2PKRZPFCC2\",\"b64QRCode\":\"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\",\"algorithm\":\"HmacSHA1\"},\"id\":\"243060fd-09fa-48d2-b59e-708a7a634efb\"}"
+						}
+					]
+				},
+				{
+					"name": "Create Email OTP enrollment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7e2a9a5-e24b-4788-86e3-f4804b1a58e5",
+								"exec": [
+									"pm.test(\"expect status code to be 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have id\", function() {",
+									"   pm.response.to.have.jsonBody(\"id\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"emailotp_id\", jsonData.id);",
+									"});",
+									"",
+									"pm.test(\"expect emailotp_id to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"emailotp_id\")).to.exist; ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\":\"{{test_userid}}\", \n  \"enabled\":true,\n  \"emailAddress\": \"{{test_email}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/v2.0/factors/emailotp",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"emailotp"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7a258736-e203-4473-a0a4-21558d104cde",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1236b753-8e06-464b-9426-643bea21ccfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Policy Auth Flow",
+			"item": [
+				{
+					"name": "Initiate PolicyAuth flow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "03b19e37-31fb-41f3-bf68-b1f6d6ecf14d",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have access_token\", function() {",
+									"   pm.response.to.have.jsonBody(\"access_token\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"access_token\", jsonData.access_token);",
+									"   pm.environment.set(\"current_client_id\", pm.environment.get(\"app_client_id\"));",
+									"   pm.environment.set(\"current_client_secret\", pm.environment.get(\"app_client_secret\"));",
+									"});",
+									"",
+									"",
+									"pm.test(\"expect access_token to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"access_token\")).to.exist; ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "policyauth",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{app_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{app_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the ID sources for a username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "70a27c1f-5e73-4fc9-95fd-8eb5c85d1e30",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to be JSON\", function() {",
+									"   pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"expect voiceotp to have at least one member\", function() {",
+									"   pm.expect(pm.response.json().length).to.be.above(0);",
+									"    let jsonData = JSON.parse(responseBody);",
+									"    pm.environment.set = (\"identity_source\", jsonData[0].id);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\n     \"user\":\"{{test_username}}\"\n}"
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v1/mgmt/idaas/user/identitysources",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v1",
+								"mgmt",
+								"idaas",
+								"user",
+								"identitysources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password as First Factor (Returns JWT)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aac6ef01-1b31-486d-8ec4-2e448aaaca99",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to be JSON\", function() {",
+									"   pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"expect response body to contain id\", function() {",
+									"   pm.response.to.have.jsonBody(\"id\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"test_userid\", jsonData.id);",
+									"});",
+									"",
+									"pm.test(\"expect response body to contain assertion\", function() {",
+									"   pm.response.to.have.jsonBody(\"assertion\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"interim_jwt\", jsonData.assertion);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{test_username}}\",\r\n    \"password\": \"{{test_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v1.0/authnmethods/password/{{identity_source}}?returnJwt=true",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v1.0",
+								"authnmethods",
+								"password",
+								"{{identity_source}}"
+							],
+							"query": [
+								{
+									"key": "returnJwt",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create TOTP (/authnmethods/totp) - adriana",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"owner\": \"50EGVUXX0E\",\n  \"isEnabled\": true,\n  \"ownerDisplayName\": \"adriana\"\n}"
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v1.0/authnmethods/totp/?qrcodeInResponse=true",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v1.0",
+										"authnmethods",
+										"totp",
+										""
+									],
+									"query": [
+										{
+											"key": "qrcodeInResponse",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 169.53.65.119:443",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Backside-Transport",
+									"value": "OK OK",
+									"name": "X-Backside-Transport",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Client-IP",
+									"value": "32.97.110.58",
+									"name": "X-Client-IP",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Global-Transaction-ID",
+									"value": "1321042401",
+									"name": "X-Global-Transaction-ID",
+									"description": "Custom header"
+								},
+								{
+									"key": "content-language",
+									"value": "en-US",
+									"name": "content-language",
+									"description": "The language the content is in"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json",
+									"name": "content-type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "date",
+									"value": "Tue, 14 Nov 2017 22:41:01 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "p3p",
+									"value": "CP=\"NON CUR OTPi OUR NOR UNI\"",
+									"name": "p3p",
+									"description": "This header is supposed to set P3P policy, in the form of P3P:CP=\"your_compact_policy\". However, P3P did not take off, most browsers have never fully implemented it, a lot of websites set this header with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "PBC5YS:463686615",
+									"key": "DPJSESSIONID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "1_2_0_8Hk2CDGVqMfOJVX4btbi2KdhF-NA3JYZA7S7GWyIIg3vXR40",
+									"key": "PD-S-SESSION-ID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_52272a24-c615-11e7-af7b-000c290debb6"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_59e74f82-c615-11e7-a0f6-000c292e073e"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": false,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_caa71e5a-c89a-11e7-a0f6-000c292e073e"
+								}
+							],
+							"body": "{\"owner\":\"50EGVUXX0E\",\"methodType\":\"totp\",\"isValidated\":false,\"creationTime\":\"2017-11-14T22:41:01.263Z\",\"isEnabled\":true,\"attributes\":{\"period\":30,\"digits\":6,\"secret\":\"D4EQVJ2PKRZPFCC2\",\"b64QRCode\":\"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\",\"algorithm\":\"HmacSHA1\"},\"id\":\"243060fd-09fa-48d2-b59e-708a7a634efb\"}"
+						}
+					]
+				},
+				{
+					"name": "Request Token (JWT Bearer)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c887ac4-0945-45d1-b089-330755590137",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have access_token\", function() {",
+									"   pm.response.to.have.jsonBody(\"access_token\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"access_token\", jsonData.access_token);",
+									"   pm.environment.set(\"current_client_id\", pm.environment.get(\"app_client_id\"));",
+									"   pm.environment.set(\"current_client_secret\", pm.environment.get(\"app_client_secret\"));",
+									"});",
+									"",
+									"",
+									"pm.test(\"expect access_token to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"access_token\")).to.exist; ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{app_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{app_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "assertion",
+									"value": "{{interim_jwt}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user with /Me",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee321b5e-a5a3-4418-b6bf-023b00b5eda1",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to be JSON\", function() {",
+									"   pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"expect response body to contain id\", function() {",
+									"   pm.response.to.have.jsonBody(\"id\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"test_userid\", jsonData.id);",
+									"});",
+									"",
+									"pm.test(\"expect test_userid to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"test_userid\")).to.exist; ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{hostname}}/v2.0/Me",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"Me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change My Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81b31395-99a3-440e-a9b4-324993096064",
+								"exec": [
+									"pm.test(\"expect status code to be 204\", function() {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newPassword\": \"{{test_password}}\",\r\n  \"currentPassword\": \"{{test_password}}\",\r\n  \"schemas\": [\r\n      \"urn:ietf:params:scim:schemas:ibm:core:2.0:ChangePassword\"\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/Me/password",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"Me",
+								"password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create TOTP (/authnmethods/totp) - adriana",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"owner\": \"50EGVUXX0E\",\n  \"isEnabled\": true,\n  \"ownerDisplayName\": \"adriana\"\n}"
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v1.0/authnmethods/totp/?qrcodeInResponse=true",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v1.0",
+										"authnmethods",
+										"totp",
+										""
+									],
+									"query": [
+										{
+											"key": "qrcodeInResponse",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 169.53.65.119:443",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Backside-Transport",
+									"value": "OK OK",
+									"name": "X-Backside-Transport",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Client-IP",
+									"value": "32.97.110.58",
+									"name": "X-Client-IP",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Global-Transaction-ID",
+									"value": "1321042401",
+									"name": "X-Global-Transaction-ID",
+									"description": "Custom header"
+								},
+								{
+									"key": "content-language",
+									"value": "en-US",
+									"name": "content-language",
+									"description": "The language the content is in"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json",
+									"name": "content-type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "date",
+									"value": "Tue, 14 Nov 2017 22:41:01 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "p3p",
+									"value": "CP=\"NON CUR OTPi OUR NOR UNI\"",
+									"name": "p3p",
+									"description": "This header is supposed to set P3P policy, in the form of P3P:CP=\"your_compact_policy\". However, P3P did not take off, most browsers have never fully implemented it, a lot of websites set this header with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "PBC5YS:463686615",
+									"key": "DPJSESSIONID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "1_2_0_8Hk2CDGVqMfOJVX4btbi2KdhF-NA3JYZA7S7GWyIIg3vXR40",
+									"key": "PD-S-SESSION-ID"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_52272a24-c615-11e7-af7b-000c290debb6"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": true,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_59e74f82-c615-11e7-a0f6-000c292e073e"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "tenant-orch-test.ite1.idng.ibmcloudsecurity.com",
+									"path": "/",
+									"secure": false,
+									"value": "%2Fauthsvc",
+									"key": "PD_STATEFUL_caa71e5a-c89a-11e7-a0f6-000c292e073e"
+								}
+							],
+							"body": "{\"owner\":\"50EGVUXX0E\",\"methodType\":\"totp\",\"isValidated\":false,\"creationTime\":\"2017-11-14T22:41:01.263Z\",\"isEnabled\":true,\"attributes\":{\"period\":30,\"digits\":6,\"secret\":\"D4EQVJ2PKRZPFCC2\",\"b64QRCode\":\"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\",\"algorithm\":\"HmacSHA1\"},\"id\":\"243060fd-09fa-48d2-b59e-708a7a634efb\"}"
+						}
+					]
+				},
+				{
+					"name": "Get all MFA enrollments by userId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b3ae0f2-429b-4841-821b-9d20bfc2ddb2",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have factors\", function() {",
+									"   pm.response.to.have.jsonBody(\"factors\");",
+									"});",
+									"",
+									"let factors;",
+									"",
+									"pm.test(\"expect factors to have at least one member\", function() {",
+									"   pm.expect(pm.response.json().factors.length).to.be.above(0);",
+									"    factors = JSON.parse(responseBody).factors;",
+									"});",
+									"",
+									"pm.test(\"expect at least one email OTP factor\", function() {",
+									"    let emailotpid;",
+									"    factors.forEach((factor) => {",
+									"        if (factor.type == \"emailotp\") {",
+									"           emailotpid = factor.id;",
+									"        }",
+									"   }) ",
+									"   pm.expect(emailotpid).to.exist;",
+									"   pm.environment.set(\"emailotp_id\", emailotpid)",
+									"});",
+									"",
+									"pm.test(\"expect emailotp_id to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"emailotp_id\")).to.exist; ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/factors?search=userId=\"{{test_userid}}\"",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "userId=\"{{test_userid}}\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate enrolled Email OTP txn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66599360-debe-4772-99e9-6d8becf6369b",
+								"exec": [
+									"pm.test(\"expect status code to be 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have id\", function() {",
+									"   pm.response.to.have.jsonBody(\"id\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"email_txnid\", jsonData.id);",
+									"});",
+									"",
+									"pm.test(\"expect email_txnid to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"email_txnid\")).to.exist; ",
+									"});",
+									"",
+									"pm.variables.unset('correlation');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e02d3f7d-702b-490c-afe8-2e993e29f830",
+								"exec": [
+									"// build a correlation variable with random 4-digit value",
+									"var numstr = \"\"+Math.floor(Math.random()*1000);",
+									"var pad = \"0000\";",
+									"var correlation = pad.substring(0, pad.length - numstr.length) + numstr;",
+									"console.log(\"correlation: \" + correlation);",
+									"pm.variables.set(\"correlation\", correlation);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"correlation\": \"{{correlation}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/v2.0/factors/emailotp/{{emailotp_id}}/verifications",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"emailotp",
+								"{{emailotp_id}}",
+								"verifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify an Email OTP txn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a807336b-a857-460a-ac36-a7a9942a7cc7",
+								"exec": [
+									"pm.test(\"expect status code to be 204\", function() {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"pm.test(\"expect response body to contain assertion\", function() {",
+									"   pm.response.to.have.jsonBody(\"assertion\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"interim_jwt\", jsonData.assertion);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"otp\": \"REPLACEME\" \r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/v2.0/factors/emailotp/{{emailotp_id}}/verifications/{{email_txnid}}?returnJwt=true",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"emailotp",
+								"{{emailotp_id}}",
+								"verifications",
+								"{{email_txnid}}"
+							],
+							"query": [
+								{
+									"key": "returnJwt",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Token (JWT Bearer) - Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6481b28b-e211-4fef-aa95-447ac49777b3",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have access_token\", function() {",
+									"   pm.response.to.have.jsonBody(\"access_token\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"access_token\", jsonData.access_token);",
+									"   pm.environment.set(\"current_client_id\", pm.environment.get(\"app_client_id\"));",
+									"   pm.environment.set(\"current_client_secret\", pm.environment.get(\"app_client_secret\"));",
+									"});",
+									"",
+									"",
+									"pm.test(\"expect access_token to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"access_token\")).to.exist; ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{app_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{app_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "assertion",
+									"value": "{{interim_jwt}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Introspect Access Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{current_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{current_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/introspect",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call UserInfo endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/userinfo",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "41af437c-b330-46c1-9d77-80cdb5b96013",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9eed6810-ef61-4609-b0bd-bfef81694276",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Clean-up",
+			"item": [
+				{
+					"name": "Get Privileged Client Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67e1fd4f-5823-45d6-8132-1853f61500ff",
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have access_token\", function() {",
+									"   pm.response.to.have.jsonBody(\"access_token\");",
+									"   let jsonData = JSON.parse(responseBody);",
+									"   pm.environment.set(\"access_token\", jsonData.access_token);",
+									"   pm.environment.set(\"current_client_id\", pm.environment.get(\"client_id\"));",
+									"   pm.environment.set(\"current_client_secret\", pm.environment.get(\"client_secret\"));",
+									"});",
+									"",
+									"",
+									"pm.test(\"expect access_token to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"access_token\")).to.exist; ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"oidc",
+								"endpoint",
+								"default",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CLEANUP: Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a55e5950-89b9-428e-9fac-880c38d7cd39",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"expect status code to be 204\", function() {",
+									"    pm.response.to.have.status(204);",
+									"    pm.environment.unset('test_userid');",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/Users/{{test_userid}}",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"Users",
+								"{{test_userid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "44db806f-99c2-4482-a5a8-df57e3e1fe80",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fcbae54-a0df-498b-afb1-2c3a734a2cd7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4a40b0a6-70df-41b6-b50e-72981f0d48f6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e413e2e8-3642-44f1-9d8a-38062af8f460",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
