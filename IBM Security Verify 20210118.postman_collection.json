@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2a3500fa-8ace-4270-afd3-ea38987b8af8",
-		"name": "IBM Security Verify 20201218",
+		"name": "IBM Security Verify 20210118",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d020ab91-2fea-4471-b80f-1ea55a8f3995",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -97,9 +96,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "User Flows (Application Client)",
@@ -113,7 +110,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d020ab91-2fea-4471-b80f-1ea55a8f3995",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -200,7 +196,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e355220f-2723-4c85-9293-22bc080ac837",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -210,16 +205,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "90c23d5f-e2fe-4d3e-81ba-27bcccb9e0e4",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Device Flow",
@@ -230,7 +222,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d020ab91-2fea-4471-b80f-1ea55a8f3995",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -297,7 +288,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d020ab91-2fea-4471-b80f-1ea55a8f3995",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -384,7 +374,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9a0334a5-2cec-4a7c-8fcc-ee8cc279dc50",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -394,16 +383,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9e0fc2d9-86f6-461e-84a2-77e971ba8ce7",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "PolicyAuth Flow (Verify extension)",
@@ -414,7 +400,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "711dade3-bcb7-416d-8a5e-a8bd50e77ae9",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -512,7 +497,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e7a75232-7023-4502-ab5b-0b1f85ae96d8",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -522,16 +506,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5084497f-72b1-4e20-838e-60103d6658ae",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "JWT Bearer Flow",
@@ -542,7 +523,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "822d6272-1909-4240-b0e9-6bce88ba5ea1",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -624,9 +604,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Refresh Token Flow",
@@ -637,7 +615,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "52550c91-afc6-4c8c-8279-3af4facd8965",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -777,16 +754,13 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
 					],
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "daf0bb6f-6baf-4217-90bc-857f1f322fe5",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -796,16 +770,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "afa26464-a460-491c-a114-3018c0071f7e",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Call UserInfo endpoint",
@@ -949,7 +920,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "85084e5b-bfd9-4d5f-b17f-cf920d888437",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -959,15 +929,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "029650f3-be14-4cba-99a1-5abc96998097",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Password Authentication",
@@ -978,7 +946,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7ce2643c-f87c-4fde-98cc-21d645172d2b",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -1040,7 +1007,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4baa2fc4-5546-4787-a934-0a72e853bff4",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -1287,7 +1253,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8f0bed20-f37c-4c65-b3bc-13f280aad54f",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -1511,7 +1476,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8f9c7bbb-c4cd-4011-b07e-9223741fcfa2",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -1710,7 +1674,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e0fb87df-9680-44f2-8f87-bf48625d19fc",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -1909,7 +1872,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5c89d1ff-caee-4c77-ac35-a6dfbbf5ea62",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -2109,7 +2071,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8fe9a708-786c-47e3-82ef-d47461ff7f47",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -2323,7 +2284,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bdc6553a-53bf-4a23-8bf4-b0c0dbcd2aa4",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2333,15 +2293,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5879f6a2-0dbf-4021-90a4-ec7a72ddf36b",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Factors Discovery",
@@ -2352,7 +2310,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4ac51319-ef83-465e-85a0-3a33ed881e25",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2417,7 +2374,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e63f63c5-f8e3-4069-8b65-f8e14c677ae1",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2456,7 +2412,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9bc1ded2-8850-4fa8-ad5c-ec60761bfc6d",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2506,7 +2461,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8a3ee161-124e-4c07-baf7-7d381ffcf332",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2516,15 +2470,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2067d6ad-82e2-45df-b63a-0cb845dbd06c",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Email OTP",
@@ -2535,7 +2487,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f3784512-908b-44b2-bdde-c7554c9d16e2",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2570,7 +2521,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4971657e-bc69-4a86-92ae-9c58f53d93c2",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -2614,7 +2564,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5e26e106-10f7-426b-882e-933b02d85373",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2648,7 +2597,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "771bfe3f-d160-46fc-acfb-833eb2644867",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -2706,7 +2654,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e9869b7c-4074-4c95-ba51-dfb37d6afe57",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2772,7 +2719,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dcc44311-6048-4e4f-88cb-c70d93a0e490",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -2812,7 +2758,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "878b54d7-aeec-4d89-bc3c-4df832abc6b2",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -2841,7 +2786,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "442991f2-259a-4f3a-9031-88d522b7d636",
 								"exec": [
 									"// build a correlation variable with random 4-digit value",
 									"var numstr = \"\"+Math.floor(Math.random()*1000);",
@@ -2889,7 +2833,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "71fbff53-b10a-47a3-a52e-e024becac90e",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -2917,7 +2860,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "98d63f10-e616-4041-b057-f706c19293a9",
 								"exec": [
 									""
 								],
@@ -2960,7 +2902,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "df90f9e2-74ea-49f2-ad4f-82836f23dbdb",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3018,7 +2959,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0f8565f6-a486-4a52-a055-a33df44ea2d6",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3060,7 +3000,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2278a7e2-8295-45cc-98a5-086abc18c2b7",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3108,7 +3047,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "36e78d8b-bbf9-4b8c-87b6-555e1458c631",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3157,7 +3095,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ae223da3-9389-484d-abf1-da961fcc9d2f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3167,15 +3104,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3b0aad5a-f9eb-42cb-810f-6b1734ebc48b",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "SMS OTP",
@@ -3186,7 +3121,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "32614b20-954f-4a1e-9aea-1d29aaa5394d",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3221,7 +3155,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f0c2ffd0-8e26-41e1-9199-73b53c8cf745",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3265,7 +3198,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3f74f21f-6ac2-47af-b509-3d6d3ab1508d",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3299,7 +3231,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9eca6752-441e-4efc-9f4f-2b67b5c549ee",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -3357,7 +3288,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "eaad6e62-43f5-48fc-9715-313f7b6a7e19",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3423,7 +3353,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c777fed7-7ca8-45c0-9345-7c42d731ea94",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3463,7 +3392,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "30a5435a-d775-46ed-8bab-67e68a4e3a2e",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -3492,7 +3420,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "d3647c75-46f9-4db0-987e-0a5243759092",
 								"exec": [
 									"// build a correlation variable with random 4-digit value",
 									"var numstr = \"\"+Math.floor(Math.random()*1000);",
@@ -3540,7 +3467,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0eff04de-22ae-427a-9468-f5bf51630152",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -3568,7 +3494,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "116a455b-106c-447b-b7ca-1a0d0249d240",
 								"exec": [
 									""
 								],
@@ -3611,7 +3536,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "20e61601-2b13-403c-be14-0aaf3c545b62",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3669,7 +3593,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c28a9f5a-5882-47ec-832c-94d78d3f2bda",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3711,7 +3634,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "db397a67-2a2c-4f8a-a1ab-c00637f52b57",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3759,7 +3681,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ac581d2-6f3c-4924-b528-4fa776ca80fe",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3808,7 +3729,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d25c9249-1dee-4cd1-8de3-f68c5b03f427",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3818,15 +3738,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b4c6e124-1e95-40b1-956c-da4e80e3d937",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Voice OTP",
@@ -3837,7 +3755,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6678cccf-300d-4c30-989d-a48597bc1a5a",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3872,7 +3789,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "67e497ae-c819-4458-b182-dade5ce2f486",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -3916,7 +3832,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "488914e2-170d-4a1f-89ae-df44552f4277",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -3950,7 +3865,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "83bb7e6b-02f9-47a0-a643-dd21c3e8b768",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -4008,7 +3922,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3883565a-f73d-42f1-8549-2f2adc810c3f",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -4074,7 +3987,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "958a54bd-ed5e-4e9e-9b22-7ec58386dc8f",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -4114,7 +4026,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9d32185b-f285-4030-9502-b7cadbc831dc",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -4143,7 +4054,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "982b5112-5285-41e8-9bd4-420e523d6939",
 								"exec": [
 									"// build a correlation variable with random 4-digit value",
 									"var numstr = \"\"+Math.floor(Math.random()*1000);",
@@ -4191,7 +4101,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3eff74c5-c8c6-40df-adcd-68a2c13436f1",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -4219,7 +4128,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "b9e6a339-f1b7-4e58-baa8-e57c462e4dcf",
 								"exec": [
 									""
 								],
@@ -4262,7 +4170,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "56d93fc4-bb73-42be-a0f4-78d004c69bd9",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -4320,7 +4227,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6b4c832f-6a9e-4de5-bdda-2dcc05628303",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -4362,7 +4268,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f79e1a9e-bdbb-4411-ae68-f7dcd1c77020",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -4410,7 +4315,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1e3e483b-115a-4364-b80a-1304aa35d233",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -4459,7 +4363,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "da627f5d-ae55-433e-b6f3-9e2632e34cc5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -4469,15 +4372,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a0f3ed9a-37f5-4b72-97ca-233284b52b9c",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "TOTP",
@@ -4488,7 +4389,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c67ba905-c84e-417b-ad2b-15a7917565b1",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -4523,7 +4423,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9adf7e4e-d646-422b-b12e-693b00ba8dd8",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -4567,7 +4466,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ab16e430-21d3-41e6-9f59-843a52946972",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -4606,7 +4504,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b840605e-b9a2-4ee6-a900-578d131b1704",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -4827,7 +4724,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "55be2a3a-7a85-427b-9a1f-28af53c78667",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -5055,7 +4951,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cb35a2b8-ab62-486b-b88f-59ffcc0bed31",
 								"exec": [
 									"pm.test(\"expect status code to be 201\", function() {",
 									"    pm.response.to.have.status(201);",
@@ -5260,7 +5155,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b6d2ddb0-c7ad-4641-92c7-e81394c8167d",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -5343,7 +5237,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8191cb79-9ec8-4698-b0e7-e555fa984e46",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -5399,7 +5292,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4b227c09-df37-43dc-95cb-057fdcbfb3eb",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -5448,7 +5340,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "433f072c-fbc2-46ff-ad1b-fd7a573634e3",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -5458,15 +5349,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "54b68304-569a-49b0-aca4-c06bae88be07",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Mobile PUSH (IBM Verify)",
@@ -5480,7 +5369,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "03affb72-e2fa-49a2-90b3-4552cd4e8375",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -5514,7 +5402,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4503563d-d7d3-4ed1-8390-1fe4578927b6",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
 											"    pm.response.to.have.status(204);",
@@ -5551,9 +5438,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Authenticator Clients",
@@ -5564,7 +5449,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f630cfa1-f5c1-4770-acd4-5ea2cd931532",
 										"exec": [
 											"pm.test(\"expect status code to be 201\", function() {",
 											"    pm.response.to.have.status(201);",
@@ -5623,7 +5507,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0c0a0f9e-0233-4bab-a6fa-cbde64177068",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -5677,7 +5560,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "06e784e0-6ef0-4293-bd3c-1bb6040d1a6e",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -5736,7 +5618,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "04da0026-4576-479f-8285-cd5b08be3871",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -5772,7 +5653,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9fb56649-91aa-4beb-be13-c3a8b68f054d",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -5817,7 +5697,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0022f59d-82f5-4c5f-8b33-4ca6b231ad52",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -5861,7 +5740,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "96b3f37d-0d8c-4467-8050-ddfe5c93e2b8",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -5899,9 +5777,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Get All Authenticator Clients",
@@ -5909,7 +5785,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a147d247-74f5-4832-b5c7-e6dd7ed6850b",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -5961,7 +5836,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "383359e1-72a5-43ad-9328-ebeb4d72115e",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -5994,7 +5868,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a54b85b1-02a5-48d2-8442-fb8a7bf31f84",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6041,7 +5914,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f3dcd290-2cc5-418d-a188-a313aed86f15",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6094,7 +5966,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fe915dc0-b4cf-4116-8dfb-a0faf741846b",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6141,7 +6012,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "658ec020-3bcc-421b-9ff5-3d72c0a7082f",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6224,7 +6094,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0022f59d-82f5-4c5f-8b33-4ca6b231ad52",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6267,7 +6136,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "96b3f37d-0d8c-4467-8050-ddfe5c93e2b8",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6310,7 +6178,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6ba8273-9141-4b05-a9ef-719aedab6b2e",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6344,7 +6211,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3bd9d566-475b-4910-b2c2-dfe4fb756b80",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6385,7 +6251,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ae709926-380d-4605-a41f-1bf13a320afa",
 								"type": "text/javascript",
 								"exec": [
 									"pm.environment.unset(\"signature_id\");",
@@ -6426,7 +6291,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1b439077-da95-443c-96ed-3534c55a7fe4",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6467,7 +6331,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ae709926-380d-4605-a41f-1bf13a320afa",
 								"type": "text/javascript",
 								"exec": [
 									"pm.environment.unset(\"signature_id\");",
@@ -6508,7 +6371,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6fbd5005-106a-43b8-95ed-457da4a22e8a",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6540,7 +6402,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "71cc7cba-8fb0-40a9-a291-3c1c81aee003",
 								"type": "text/javascript",
 								"exec": [
 									"pm.environment.unset(\"signature_subtype\");",
@@ -6580,7 +6441,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e747a0b6-f537-4d3e-98c4-3ddcad2153c0",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6625,7 +6485,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9323dd69-4250-46b2-9d0c-9368281e7498",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6670,7 +6529,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "47e09ad0-8d80-4019-9208-a76fc2307a9d",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 202\", function() {",
@@ -6730,7 +6588,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "70f60f32-5ee4-4e2c-b011-cb1444ab5ce9",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6766,7 +6623,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cae108ba-b0ca-4c99-a532-8d4585dcbe2b",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -6815,7 +6671,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "97b0a311-5716-4a07-ad1e-aef3c5b0a6f6",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6856,7 +6711,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "682d4239-7951-400e-9e93-7d922dc08c1a",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6897,7 +6751,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a01bb0f0-7dac-40c7-9bb0-6358d2699726",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
@@ -6954,7 +6807,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0e6b068f-3595-4572-af5b-8714f624b374",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -6964,15 +6816,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b1663646-2c50-45e8-abc0-f5577ea4fb32",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "QR Code Login",
@@ -6983,7 +6833,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1d23bb36-385e-4784-bbe7-4eea5b3f9c3b",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
@@ -7018,7 +6867,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06e784e0-6ef0-4293-bd3c-1bb6040d1a6e",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7077,7 +6925,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06e784e0-6ef0-4293-bd3c-1bb6040d1a6e",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7152,7 +6999,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06e784e0-6ef0-4293-bd3c-1bb6040d1a6e",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7234,7 +7080,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06e784e0-6ef0-4293-bd3c-1bb6040d1a6e",
 								"exec": [
 									"pm.test(\"expect status code to be 204\", function() {",
 									"    pm.response.to.have.status(204);",
@@ -7281,7 +7126,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "401b5d18-d3c4-4cbd-94a1-20b589977856",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -7291,15 +7135,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bee9f1ea-d30e-49f2-a41c-eac2450ded70",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Identity Sources",
@@ -7310,7 +7152,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6cbe5248-6e91-47b0-abf2-bef9f49a4867",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7372,7 +7213,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f44d8053-d4d5-46a2-a494-1506cb2454b3",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7440,7 +7280,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f31c6361-d3fb-4c7b-a113-2d902b8f2d05",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7496,7 +7335,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "084f8e66-a737-4ee8-a65a-8191702d4cc4",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -7567,7 +7405,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fdd32853-d828-4b1c-8842-287eea818542",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -7577,15 +7414,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "992aabbc-d5dd-496b-8451-9f12cf256f41",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Provisioning",
@@ -7599,7 +7434,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a1e5c60d-9fdd-45e0-955d-c7dbc94dd9d3",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -7632,7 +7466,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "346c6fab-a3ba-4ffe-96d2-b77a01e1c86a",
 										"exec": [
 											"pm.test(\"expect status code to be 201\", function() {",
 											"    pm.response.to.have.status(201);",
@@ -7849,7 +7682,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2a3a74d4-15c8-4ba1-a03e-50ca6e24e535",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -7938,7 +7770,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f8f4ff46-57b0-4119-b902-f03cea82f2c3",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -7995,7 +7826,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "06903f5d-39c2-4536-b0cf-7fe575d7cc73",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -8038,7 +7868,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a81bb7fe-6187-457d-9200-c71d465eb851",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -8234,7 +8063,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "eade00e5-1915-40df-b02c-d34e91c94586",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -8287,7 +8115,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5540cff1-0673-4c01-a4e5-c4f419618e12",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -8325,8 +8152,7 @@
 							},
 							"response": []
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "PasswordReset API",
@@ -8337,7 +8163,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "85ad49c9-97a7-48ee-bdde-d9f1cf3c51ea",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -8381,7 +8206,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1166dccc-2705-49b6-842f-2f0070e009d5",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -8425,7 +8249,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3df4a6c6-e169-4af2-b676-32aa4ad0771a",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -8435,32 +8258,29 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "399f7daa-be25-4ca4-8141-771a224c169a",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				},
 				{
-					"name": "Custom Attributes API",
+					"name": "Attributes",
 					"item": [
 						{
-							"name": "Get all schema attributes",
+							"name": "Get all attributes",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "fb96198b-e795-4ad7-974e-cafcc364b220",
-										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
 											"});"
-										]
+										],
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -8473,14 +8293,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes",
+									"raw": "{{scheme}}://{{hostname}}/v1.0/attributes",
 									"protocol": "{{scheme}}",
 									"host": [
 										"{{hostname}}"
 									],
 									"path": [
-										"v2.0",
-										"Schema",
+										"v1.0",
 										"attributes"
 									]
 								}
@@ -8488,191 +8307,38 @@
 							"response": []
 						},
 						{
-							"name": "Get schema attributes paging",
+							"name": "Create custom attribute (UI)",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "241bdc5f-9fe7-409f-9d3f-0075590c1661",
-										"type": "text/javascript",
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										]
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?count=10&startIndex=1&sortBy=scimName",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v2.0",
-										"Schema",
-										"attributes"
-									],
-									"query": [
-										{
-											"key": "count",
-											"value": "10"
-										},
-										{
-											"key": "startIndex",
-											"value": "1"
-										},
-										{
-											"key": "sortBy",
-											"value": "scimName"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all default schema attributes",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "3cd367de-c592-498e-bf6e-413b608bf150",
-										"type": "text/javascript",
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										]
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=default",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v2.0",
-										"Schema",
-										"attributes"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "default"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all custom schema attributes",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "f97a123f-2f92-47d9-a755-49a5ff467e48",
-										"type": "text/javascript",
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										]
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=custom",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v2.0",
-										"Schema",
-										"attributes"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "custom"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Attribute available count",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=customAvailable",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v2.0",
-										"Schema",
-										"attributes"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "customAvailable"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create custom attribute",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "e0048b66-4e92-4d44-8f77-abc22970bdc0",
 										"exec": [
 											"pm.test(\"expect status code to be 201\", function() {",
 											"    pm.response.to.have.status(201);",
-											"});"
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to be JSON\", function() {",
+											"   pm.response.to.be.json;",
+											"});",
+											"",
+											"pm.test(\"expect response body to contain id\", function() {",
+											"   pm.response.to.have.jsonBody(\"id\");",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"customattr_id\", jsonData.id);",
+											"});",
+											"",
+											"pm.test(\"expect customattr_id to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"customattr_id\")).to.exist; ",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -8683,22 +8349,21 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/scim+json"
+										"value": "application/json"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"schemas\": [\r\n    \"urn:ietf:params:scim:schemas:ibm:core:2.0:SchemaAttribute\"\r\n  ],\r\n  \"name\": \"customAttribute20\",\r\n  \"description\": \"A custom attribute for demonstration purposes.\",\r\n  \"displayName\": \"Demo Attribute\",\r\n  \"type\": \"string\",\r\n  \"scimName\": \"demoAttribute\",\r\n  \"multiValue\": false\r\n}"
+									"raw": "{\r\n  \"args\": {\r\n    \"name\": \"demoAttribute\"\r\n  },\r\n  \"datatype\": \"string\",\r\n  \"name\": \"My Demo Attribute\",\r\n  \"schemaAttribute\": {\r\n    \"customAttribute\": true,\r\n    \"name\": \"customAttribute20\",\r\n    \"scimName\": \"demoAttribute\"\r\n  },\r\n  \"scope\": \"tenant\",\r\n  \"sourceType\": \"schema\",\r\n  \"tags\": [\"prov\", \"sso\"],\r\n  \"credName\": \"\"\r\n}"
 								},
 								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes",
+									"raw": "{{scheme}}://{{hostname}}/v1.0/attributes",
 									"protocol": "{{scheme}}",
 									"host": [
 										"{{hostname}}"
 									],
 									"path": [
-										"v2.0",
-										"Schema",
+										"v1.0",
 										"attributes"
 									]
 								}
@@ -8706,59 +8371,28 @@
 							"response": []
 						},
 						{
-							"name": "Update custom attribute",
+							"name": "Get attribute by name",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "8b8cfaf6-a536-429c-a551-ecde1a0f7d8c",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/scim+json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"schemas\": [\r\n    \"urn:ietf:params:scim:schemas:ibm:core:2.0:SchemaAttribute\"\r\n  ],\r\n  \"name\": \"customAttribute20\",\r\n  \"description\": \"An updated description for a demonstration custom attribute\",\r\n  \"displayName\": \"Updated Display Name\",\r\n  \"type\": \"string\",\r\n  \"scimName\": \"demoAttribute\",\r\n  \"multiValue\": true\r\n}"
-								},
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes/customAttribute20",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v2.0",
-										"Schema",
-										"attributes",
-										"customAttribute20"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get schema attribute by name",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "24bc2df7-2c74-4398-bf97-deb81ba13ca4",
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect at least one result\", function() {",
+											"   pm.expect(pm.response.json().length).to.be.above(0);",
+											"    let jsonData = JSON.parse(responseBody);",
+											"    pm.environment.set(\"customattr_id\", jsonData[0].id);",
+											"});",
+											"",
+											"pm.test(\"expect customattr_id to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"customattr_id\")).to.exist; ",
 											"});"
 										],
 										"type": "text/javascript"
@@ -8774,16 +8408,20 @@
 									}
 								],
 								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes/customAttribute20",
+									"raw": "{{scheme}}://{{hostname}}/v1.0/attributes?search=name  = \"My Demo Attribute\"",
 									"protocol": "{{scheme}}",
 									"host": [
 										"{{hostname}}"
 									],
 									"path": [
-										"v2.0",
-										"Schema",
-										"attributes",
-										"customAttribute20"
+										"v1.0",
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "name  = \"My Demo Attribute\""
+										}
 									]
 								}
 							},
@@ -8795,7 +8433,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e3412893-1d65-4e9d-83ad-ab76b7de8cdc",
 										"exec": [
 											"pm.test(\"expect status code to be 201\", function() {",
 											"    pm.response.to.have.status(201);",
@@ -8829,7 +8466,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d51dc744-e868-44a8-a178-cb25b2d6f09c",
 										"exec": [
 											"pm.environment.unset(\"custom_userid\");"
 										],
@@ -9022,7 +8658,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d1781257-7634-4598-9dc8-2d044559174e",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -9080,7 +8715,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "541620ee-73b0-40d5-9eb6-75644c5a91f2",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -9133,12 +8767,72 @@
 							"response": []
 						},
 						{
-							"name": "Update user with custom attribute",
+							"name": "#Get user - only return a custom attribute",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "c1775dfd-2f39-4327-993b-c262317a162d",
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have totalResults\", function() {",
+											"   pm.response.to.have.jsonBody(\"totalResults\"); ",
+											"});",
+											"",
+											"pm.test(\"expect totalResults = 1\", function() {",
+											"   pm.expect(pm.response.json().totalResults).to.equal(1);",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"custom_userid\", jsonData.Resources[0].id);",
+											"});",
+											"",
+											"pm.test(\"expect custom_userid to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"custom_userid\")).to.exist; ",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}/v2.0/Users?filter=userName eq \"customAttrUser\"&attributes=urn:ietf:params:scim:schemas:extension:ibm:2.0:User:customAttributes.demoAttribute",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "userName eq \"customAttrUser\""
+										},
+										{
+											"key": "attributes",
+											"value": "urn:ietf:params:scim:schemas:extension:ibm:2.0:User:customAttributes.demoAttribute"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user with custom attribute Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -9329,15 +9023,14 @@
 							]
 						},
 						{
-							"name": "Patch a user with custom attribute",
+							"name": "Patch a user with custom attribute Copy",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "86a5dbd4-92eb-4128-8095-9f5d69699f5c",
 										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
+											"pm.test(\"expect status code to be 204\", function() {",
+											"    pm.response.to.have.status(204);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -9530,7 +9223,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b7a937df-6c35-49df-ad19-b7b6ad1422dc",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -9564,12 +9256,390 @@
 							"response": []
 						},
 						{
+							"name": "Delete attribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 204\", function() {",
+											"    pm.response.to.have.status(204);",
+											"    pm.environment.unset(\"customattr_id\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v1.0/attributes/{{customattr_id}}",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v1.0",
+										"attributes",
+										"{{customattr_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Schema Attributes",
+					"item": [
+						{
+							"name": "Get all schema attributes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get schema attributes paging",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?count=10&startIndex=1&sortBy=scimName",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "count",
+											"value": "10"
+										},
+										{
+											"key": "startIndex",
+											"value": "1"
+										},
+										{
+											"key": "sortBy",
+											"value": "scimName"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all default schema attributes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=default",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "default"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all custom schema attributes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=custom",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "custom"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Attribute available count",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes?filter=customAvailable",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "customAvailable"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create custom schema attribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 201\", function() {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/scim+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"schemas\": [\r\n    \"urn:ietf:params:scim:schemas:ibm:core:2.0:SchemaAttribute\"\r\n  ],\r\n  \"name\": \"customAttribute20\",\r\n  \"description\": \"A custom attribute for demonstration purposes.\",\r\n  \"displayName\": \"Demo Attribute\",\r\n  \"type\": \"string\",\r\n  \"scimName\": \"demoAttribute\",\r\n  \"multiValue\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes"
+									]
+								},
+								"description": "You should create attributes using the /v1.0/attributes API instead of using this API."
+							},
+							"response": []
+						},
+						{
+							"name": "Update custom attribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/scim+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"schemas\": [\r\n    \"urn:ietf:params:scim:schemas:ibm:core:2.0:SchemaAttribute\"\r\n  ],\r\n  \"name\": \"customAttribute20\",\r\n  \"description\": \"An updated description for a demonstration custom attribute\",\r\n  \"displayName\": \"Updated Display Name\",\r\n  \"type\": \"string\",\r\n  \"scimName\": \"demoAttribute\",\r\n  \"multiValue\": true\r\n}"
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes/customAttribute20",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes",
+										"customAttribute20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get schema attribute by name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Schema/attributes/customAttribute20",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Schema",
+										"attributes",
+										"customAttribute20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Delete custom schema attribute",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "a59e7f02-e1ac-4e6d-b5fb-bafe8ad6bf3b",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
 											"    pm.response.to.have.status(204);",
@@ -9608,7 +9678,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "c9e2a769-6e5d-4fa8-9cc7-d34ae9d1db11",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -9618,15 +9687,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6094c380-644d-4e54-9818-ad5907c2f5be",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Groups API",
@@ -9637,7 +9704,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f3c8ae4a-8671-43a0-af00-b6ecd3af93cc",
 										"type": "text/javascript",
 										"exec": [
 											"if (responseBody !== null){",
@@ -9837,7 +9903,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3c174125-73c8-48ac-9c35-9552253158fd",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -9880,7 +9945,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3c174125-73c8-48ac-9c35-9552253158fd",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -9947,7 +10011,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b711bb74-74e0-4555-a9a5-48f5c2b4ee64",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
@@ -9990,7 +10053,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f5f35f1f-fff8-47b7-98cd-e4242c1a65fb",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -10000,15 +10062,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3435d040-e009-4aa6-97d3-0586c4a22789",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Bulk API",
@@ -10019,7 +10079,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7c261573-c8fb-4866-a53c-f64049df45f8",
 										"type": "text/javascript",
 										"exec": [
 											"if (responseBody !== null){",
@@ -10244,7 +10303,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "40f32375-ab2e-4c03-bea8-cf538ad7bf98",
 										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
@@ -10441,7 +10499,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "87b71319-d199-4dd3-b92d-513684a44bcd",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -10451,15 +10508,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "44ee29b9-3005-408a-9097-fe534c01565a",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"auth": {
@@ -10476,7 +10531,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d36e728f-f578-46c0-838a-f92fc95a0fb1",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -10486,15 +10540,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6c349583-959a-4cee-8a31-2942e944efd7",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Grant Management",
@@ -10505,7 +10557,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10543,7 +10594,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10581,7 +10631,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10618,7 +10667,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ffeabcde-aa0e-48f1-9030-2860ba9bc0d6",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -10628,15 +10676,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d8a67e0d-a491-4804-b10d-e2a972df7d6f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Consent Management",
@@ -10647,7 +10693,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10685,7 +10730,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10723,7 +10767,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -10760,7 +10803,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1c7b00c6-dd36-477f-9dfc-cdbcc6598c61",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -10770,15 +10812,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0f8c25ca-d8f7-47c9-b4e5-9efe881b110a",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "DPCM",
@@ -10789,7 +10829,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c8e2dd12-2965-41d1-bb2e-beedaf6102dc",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -11001,7 +11040,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b50930ee-90b3-40ae-ae96-074b62c5798b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -11011,15 +11049,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2b1f35a3-a7b4-455b-b5b5-a04b3d8b6a2b",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Applications (and Clients)",
@@ -11030,7 +11066,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "416be2e2-5fb9-4f7f-a65c-cdc07e6cdf9a",
 								"exec": [
 									"pm.test(\"GrabAccessToken\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -11095,7 +11130,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ffd72545-a103-412f-a3c7-2159614a5e32",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -11160,7 +11194,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ada160bf-139d-4c37-9052-f9edb44a5e3e",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -11243,7 +11276,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1c71ac93-0d39-4f96-8ce8-4898a49765da",
 								"exec": [
 									"pm.test(\"expect status code to be 200\", function() {",
 									"    pm.response.to.have.status(200);",
@@ -11394,7 +11426,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f13ec88f-36f2-4f33-ad5d-8f57c195136a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -11404,15 +11435,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "71043dc9-80f5-46d4-aeac-41f85ed719d7",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Events, Reports, Stats",
@@ -11423,7 +11452,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6c11c17c-4f8b-4e3e-b92c-9f4248383c5d",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"postman.setEnvironmentVariable(\"after_time\", jsonData.response.events.search_after.time);\r",
@@ -11491,7 +11519,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "798afff7-c33c-4778-a492-ee42e02fe420",
 								"exec": [
 									""
 								],
@@ -11602,7 +11629,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f264294b-117d-4062-a6fb-62bd4f817651",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -11612,15 +11638,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8d68d782-8ca7-4ed3-9175-a16fe8f2eae3",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Configuration",
@@ -11693,7 +11717,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d3f6f317-aaf6-4a74-b12a-8540b7d8d500",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -11748,7 +11771,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "67e077e0-e898-4949-a887-e5de7e2991bc",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -11914,7 +11936,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "cd86f934-fb36-4829-b47b-9e95f7645a55",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -11959,7 +11980,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "315ba0c7-9371-4ee6-88bd-80ca81c50357",
 												"exec": [
 													"var appdata = JSON.parse(pm.environment.get(\"app_data\"));",
 													"var themeid = pm.environment.get(\"theme_id\");",
@@ -11978,7 +11998,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "4e893cdb-6296-4f7b-b6e7-6575ba1c6f82",
 												"exec": [
 													"pm.test(\"expect status code to be 200\", function() {",
 													"    pm.response.to.have.status(200);",
@@ -12034,7 +12053,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "507e9159-2b78-4059-8946-dbbab98a39bf",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -12044,16 +12062,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2afb104d-7951-4e6c-a928-3f2bb721341b",
 										"type": "text/javascript",
 										"exec": [
 											""
 										]
 									}
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "#Get Default Template Pages ZIP",
@@ -12061,7 +12076,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f3784512-908b-44b2-bdde-c7554c9d16e2",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -12101,7 +12115,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f3784512-908b-44b2-bdde-c7554c9d16e2",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -12135,7 +12148,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f3784512-908b-44b2-bdde-c7554c9d16e2",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -12185,7 +12197,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f3784512-908b-44b2-bdde-c7554c9d16e2",
 										"exec": [
 											"pm.test(\"expect status code to be 204\", function() {",
 											"    pm.response.to.have.status(204);",
@@ -12232,7 +12243,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "c7e15424-8b57-489f-a929-cd904f7605b9",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -12242,16 +12252,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fb2597fe-5d0e-4bd0-a9b4-9103b9d1909a",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Manage Policies",
@@ -12262,7 +12269,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -12315,7 +12321,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39a59a05-c66e-4359-9724-a26eebf60293",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -12363,7 +12368,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "0a69b6ff-d6df-47d3-840e-44061b8a5c14",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -12373,16 +12377,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "023da13b-0cb7-44d9-9121-2d5c30c0ee93",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Manage Entitlements",
@@ -12397,8 +12398,7 @@
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);"
-										],
-										"id": "78562dae-e132-4cf5-94fd-d154434337fa"
+										]
 									}
 								}
 							],
@@ -12498,7 +12498,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "119be80a-1d14-4e42-9b5e-81428fa5f58e",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"role_id\", jsonData.code);"
@@ -12554,7 +12553,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ca7a0e45-0ac1-4376-a745-1d15edc037c1",
 										"exec": [
 											""
 										],
@@ -12611,7 +12609,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e6e97f2b-e321-4013-8a51-99a2c5ef453f",
 										"exec": [
 											""
 										],
@@ -12668,7 +12665,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "35ef5aed-c9b1-4c48-9ad3-db7c41559d7b",
 										"exec": [
 											"if (responseBody !== null){",
 											"    var jsonData = JSON.parse(responseBody);",
@@ -12717,7 +12713,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "765d08af-c5fa-49c7-acd9-55594951a5b7",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"role_id\", jsonData.code);"
@@ -12980,7 +12975,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e141c233-748b-4e03-9304-f05aa5cba6ee",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -12990,16 +12984,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a5cddcc0-6c5a-4315-abbf-ee941d78d09f",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Global Tuning Properties",
@@ -13150,7 +13141,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1243a995-926f-42c5-832e-d437704eb6a8",
 										"exec": [
 											"pm.test(\"expect status code to be 200\", function() {",
 											"    pm.response.to.have.status(200);",
@@ -13241,7 +13231,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fd6739c8-9c94-4309-8893-6b3de3b70986",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -13251,23 +13240,19 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "91a754a0-4e14-41ed-9e43-a734245749da",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "608eccaa-ddac-42a8-b237-9fd3bc2465d0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -13277,22 +13262,19 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "db06d39f-cf11-4f21-b2fc-9e71cc223b5f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c192547a-c3c9-44ec-8c13-0f192a0ef180",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -13302,7 +13284,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1e1f7560-da01-45a5-841d-5f8f354f5ca4",
 				"type": "text/javascript",
 				"exec": [
 					""
