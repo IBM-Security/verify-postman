@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2a3500fa-8ace-4270-afd3-ea38987b8af8",
-		"name": "IBM Security Verify 20210118",
+		"name": "IBM Security Verify 20210524",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -808,6 +808,53 @@
 								"endpoint",
 								"default",
 								"userinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session using Access Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v1.0/auth/session?access_token={{access_token}}&redirect_url=%2Fivcreds%2F",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v1.0",
+								"auth",
+								"session"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								},
+								{
+									"key": "redirect_url",
+									"value": "%2Fivcreds%2F"
+								}
 							]
 						}
 					},
@@ -5822,6 +5869,170 @@
 			]
 		},
 		{
+			"name": "FIDO2",
+			"item": [
+				{
+					"name": "Resolve an RP ID from Origin URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"expect status code to be 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"expect response body to exist\", function() {",
+									"   pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test(\"expect response body to have fido2\", function() {",
+									"   pm.response.to.have.jsonBody(\"fido2\");",
+									"});",
+									"",
+									"pm.test(\"expect fido2 to have at least one member\", function() {",
+									"   pm.expect(pm.response.json().fido2.length).to.be.above(0);",
+									"    let jsonData = JSON.parse(responseBody);",
+									"    var firstFidoRp = jsonData.fido2[0];",
+									"    pm.environment.set(\"fidorp_id\", firstFidoRp.id);",
+									"});",
+									"",
+									"pm.test(\"expect fidorp_id to be set\", function () { ",
+									"    pm.expect(pm.environment.get(\"fidorp_id\")).to.exist; ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"origin\": \"https://www.cifido2rp.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/factors/fido2/relyingparties",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"fido2",
+								"relyingparties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"displayName\": \"{{test_firstname}} {{test_surname}}\",\n  \"attestation\": \"none\",\n  \"userId\": \"{{test_userid}}\",\n  \"extensions\": {},\n  \"authenticatorSelection\": {\n    \"requireResidentKey\": true,\n    \"authenticatorAttachment\": \"cross-platform\",\n    \"userVerification\": \"preferred\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/factors/fido2/relyingparties/{{fidorp_id}}/attestation/options",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"fido2",
+								"relyingparties",
+								"{{fidorp_id}}",
+								"attestation",
+								"options"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userVerification\": \"preferred\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v2.0/factors/fido2/relyingparties/{{fidorp_id}}/assertion/options",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v2.0",
+								"factors",
+								"fido2",
+								"relyingparties",
+								"{{fidorp_id}}",
+								"assertion",
+								"options"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "Identity Sources",
 			"item": [
 				{
@@ -6475,6 +6686,69 @@
 										{
 											"key": "filter",
 											"value": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager.value+sw+\"uid={{test_userid}}\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get users without an e-mail address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have totalResults\", function() {",
+											"   pm.response.to.have.jsonBody(\"totalResults\"); ",
+											"});",
+											"",
+											"pm.test(\"expect totalResults = 1\", function() {",
+											"   pm.expect(pm.response.json().totalResults).to.equal(1);",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"test_userid\", jsonData.Resources[0].id);",
+											"});",
+											"",
+											"pm.test(\"expect test_userid to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"test_userid\")).to.exist; ",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{hostname}}/v2.0/Users?filter=emails+npr",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "emails+npr"
 										}
 									]
 								}
@@ -8908,8 +9182,12 @@
 							"script": {
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
-									"postman.setEnvironmentVariable(\"after_time\", jsonData.response.events.search_after.time);\r",
-									"postman.setEnvironmentVariable(\"after_id\", jsonData.response.events.search_after.id);"
+									"if (jsonData.response.events.search_after.time) {\r",
+									"  postman.setEnvironmentVariable(\"after_time\", jsonData.response.events.search_after.time);\r",
+									"}\r",
+									"if (jsonData.response.events.search_after.id) {\r",
+									"postman.setEnvironmentVariable(\"after_id\", jsonData.response.events.search_after.id);\r",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -9016,6 +9294,23 @@
 				},
 				{
 					"name": "Get Events, Next",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.response.events.search_after.time) {",
+									"  postman.setEnvironmentVariable(\"after_time\", jsonData.response.events.search_after.time);",
+									"}",
+									"if (jsonData.response.events.search_after.id) {",
+									"postman.setEnvironmentVariable(\"after_id\", jsonData.response.events.search_after.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -9042,6 +9337,64 @@
 								"events"
 							],
 							"query": [
+								{
+									"key": "after",
+									"value": "\\\"{{after_time}}\\\",\\\"{{after_id}}\\\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL Events, Next",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.response.events.search_after.time) {",
+									"  postman.setEnvironmentVariable(\"after_time\", jsonData.response.events.search_after.time);",
+									"}",
+									"if (jsonData.response.events.search_after.id) {",
+									"postman.setEnvironmentVariable(\"after_id\", jsonData.response.events.search_after.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{scheme}}://{{hostname}}/v1.0/events?all_events=yes&after=\\\"{{after_time}}\\\",\\\"{{after_id}}\\\"",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"v1.0",
+								"events"
+							],
+							"query": [
+								{
+									"key": "all_events",
+									"value": "yes"
+								},
 								{
 									"key": "after",
 									"value": "\\\"{{after_time}}\\\",\\\"{{after_id}}\\\""
@@ -9262,6 +9615,24 @@
 								},
 								{
 									"name": "Create a new custom Theme and upload templates",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"extractThemeID\", function () {",
+													"    pm.response.to.have.status(201);",
+													"    var loc = pm.response.headers.get(\"Location\")",
+													"    if (loc) {",
+													"        var tokens = loc.split(\"/\");",
+													"        pm.environment.set(\"theme_id\", tokens[tokens.length - 1]);",
+													"    }",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [
@@ -9330,7 +9701,7 @@
 												{
 													"key": "files",
 													"type": "file",
-													"src": "/Users/alopez/Downloads/themes22.zip"
+													"src": []
 												},
 												{
 													"key": "configuration",
@@ -9525,162 +9896,167 @@
 							]
 						},
 						{
-							"name": "#Get Default Template Pages ZIP",
-							"event": [
+							"name": "Templates (Old)",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v1.0/branding/download?customized=false",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
-									],
-									"path": [
-										"v1.0",
-										"branding",
-										"download"
-									],
-									"query": [
+									"name": "#Get Default Template Pages ZIP",
+									"event": [
 										{
-											"key": "customized",
-											"value": "false"
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"expect status code to be 200\", function() {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "#Get Current Template Pages ZIP",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v1.0/branding/download",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
 									],
-									"path": [
-										"v1.0",
-										"branding",
-										"download"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "#Upload Template Pages ZIP",
-							"event": [
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{scheme}}://{{hostname}}/v1.0/branding/download?customized=false",
+											"protocol": "{{scheme}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"v1.0",
+												"branding",
+												"download"
+											],
+											"query": [
+												{
+													"key": "customized",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								},
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"expect status code to be 200\", function() {",
-											"    pm.response.to.have.status(200);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/octet-stream",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"name": "#Get Current Template Pages ZIP",
+									"event": [
 										{
-											"key": "formData",
-											"value": "",
-											"type": "file"
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"expect status code to be 200\", function() {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								},
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v1.0/branding/upload",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
 									],
-									"path": [
-										"v1.0",
-										"branding",
-										"upload"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "#Reset branding to default",
-							"event": [
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{scheme}}://{{hostname}}/v1.0/branding/download",
+											"protocol": "{{scheme}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"v1.0",
+												"branding",
+												"download"
+											]
+										}
+									},
+									"response": []
+								},
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"expect status code to be 204\", function() {",
-											"    pm.response.to.have.status(204);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{scheme}}://{{hostname}}/v1.0/branding/reset",
-									"protocol": "{{scheme}}",
-									"host": [
-										"{{hostname}}"
+									"name": "#Upload Template Pages ZIP",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"expect status code to be 200\", function() {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
 									],
-									"path": [
-										"v1.0",
-										"branding",
-										"reset"
-									]
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/octet-stream",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "formData",
+													"value": "",
+													"type": "file"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{scheme}}://{{hostname}}/v1.0/branding/upload",
+											"protocol": "{{scheme}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"v1.0",
+												"branding",
+												"upload"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "#Reset branding to default",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"expect status code to be 204\", function() {",
+													"    pm.response.to.have.status(204);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{scheme}}://{{hostname}}/v1.0/branding/reset",
+											"protocol": "{{scheme}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"v1.0",
+												"branding",
+												"reset"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
 						}
 					],
 					"auth": {
