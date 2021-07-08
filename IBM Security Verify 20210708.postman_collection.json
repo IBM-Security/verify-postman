@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2a3500fa-8ace-4270-afd3-ea38987b8af8",
-		"name": "IBM Security Verify 20210524",
+		"name": "IBM Security Verify 20210708",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -81,13 +81,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+									"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 									"protocol": "{{scheme}}",
 									"host": [
 										"{{hostname}}"
 									],
 									"path": [
-										"oidc",
+										"v1.0",
 										"endpoint",
 										"default",
 										"token"
@@ -176,13 +176,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"token"
@@ -267,13 +267,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/device_authorization",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/device_authorization",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"device_authorization"
@@ -351,13 +351,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"token"
@@ -467,13 +467,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"token"
@@ -589,13 +589,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"token"
@@ -688,13 +688,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"token"
@@ -739,13 +739,13 @@
 											]
 										},
 										"url": {
-											"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/revoke",
+											"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/revoke",
 											"protocol": "{{scheme}}",
 											"host": [
 												"{{hostname}}"
 											],
 											"path": [
-												"oidc",
+												"v1.0",
 												"endpoint",
 												"default",
 												"revoke"
@@ -798,13 +798,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/userinfo",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/userinfo",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"userinfo"
@@ -896,13 +896,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/introspect",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/introspect",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"introspect"
@@ -947,13 +947,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/revoke",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/revoke",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"revoke"
@@ -8241,6 +8241,519 @@
 									""
 								]
 							}
+						}
+					]
+				},
+				{
+					"name": "CSV Import",
+					"item": [
+						{
+							"name": "Get CSV Headers (Users)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/headerNames?filter=user",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"headerNames"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "user"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get CSV Headers (Groups)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/headerNames?filter=group",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"headerNames"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "group"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload CSV (embedded)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 202\", function() {",
+											"    pm.response.to.have.status(202);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have _id\", function() {",
+											"   pm.response.to.have.jsonBody(\"_id\");",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"csv_job_id\", jsonData._id);",
+											"});",
+											"",
+											"pm.test(\"expect csv_job_id to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"csv_job_id\")).to.exist; ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "usershouldnotneedtoresetpassword",
+										"value": "true",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "preferred_username,given_name,family_name,email,password\ncsvuser,CSV,User,{{test_email}},{{test_password}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/importUsers?notifyType=NONE",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"importUsers"
+									],
+									"query": [
+										{
+											"key": "notifyType",
+											"value": "NONE"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload CSV (file)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 202\", function() {",
+											"    pm.response.to.have.status(202);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have _id\", function() {",
+											"   pm.response.to.have.jsonBody(\"_id\");",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"csv_job_id\", jsonData._id);",
+											"});",
+											"",
+											"pm.test(\"expect csv_job_id to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"csv_job_id\")).to.exist; ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "usershouldnotneedtoresetpassword",
+										"value": "true",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/jonharry/Desktop/test.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/importUsers",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"importUsers"
+									],
+									"query": [
+										{
+											"key": "notifyType",
+											"value": "NONE",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List CSV jobs",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 202\", function() {",
+											"    pm.response.to.have.status(202);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have jobs\", function() {",
+											"   pm.response.to.have.jsonBody(\"jobs\");",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   if (jsonData.jobs[0]._id) {",
+											"       pm.environment.set(\"csv_job_id\", jsonData.jobs[0]._id);",
+											"   }",
+											"});",
+											"",
+											"pm.test(\"expect csv_job_id to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"csv_job_id\")).to.exist; ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/jobs",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"jobs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get CSV job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData;",
+											"",
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"expect response body to have state\", function() {",
+											"   pm.response.to.have.jsonBody(\"state\");",
+											"   jsonData = JSON.parse(responseBody);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/jobs/{{csv_job_id}}",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"jobs",
+										"{{csv_job_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel CSV job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 204\", function() {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/jobs/{{csv_job_id}}",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"jobs",
+										"{{csv_job_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete CSV job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 204\", function() {",
+											"    pm.response.to.have.status(204);",
+											"    pm.environment.unset(\"csv_job_id\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/CSV/jobs/{{csv_job_id}}",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"CSV",
+										"jobs",
+										"{{csv_job_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get CSV User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 200\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"expect response body to exist\", function() {",
+											"   pm.response.to.have.body();",
+											"});",
+											"",
+											"pm.test(\"expect response body to have totalResults\", function() {",
+											"   pm.response.to.have.jsonBody(\"totalResults\"); ",
+											"});",
+											"",
+											"pm.test(\"expect totalResults = 1\", function() {",
+											"   pm.expect(pm.response.json().totalResults).to.equal(1);",
+											"   let jsonData = JSON.parse(responseBody);",
+											"   pm.environment.set(\"csv_userid\", jsonData.Resources[0].id);",
+											"});",
+											"",
+											"pm.test(\"expect test_userid to be set\", function () { ",
+											"    pm.expect(pm.environment.get(\"csv_userid\")).to.exist; ",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{hostname}}/v2.0/Users?filter=userName+eq+\"csvuser\"",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "userName+eq+\"csvuser\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete CSV User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"expect status code to be 204\", function() {",
+											"    pm.response.to.have.status(204);",
+											"    pm.environment.unset(\"csv_userid\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{scheme}}://{{hostname}}/v2.0/Users/{{csv_userid}}",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"v2.0",
+										"Users",
+										"{{csv_userid}}"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "03636613-1a87-40c6-94c7-790956888591",
+		"_postman_id": "e1f867f2-98e8-46b1-9d2d-e426e469412a",
 		"name": "Verify Scenario: Native App PolicyAuth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -78,13 +78,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"token"
@@ -319,13 +319,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"token"
@@ -560,13 +560,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"token"
@@ -950,13 +950,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/token",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/token",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"token"
@@ -1001,13 +1001,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/introspect",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/introspect",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"introspect"
@@ -1036,13 +1036,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostname}}/oidc/endpoint/default/userinfo",
+							"raw": "{{scheme}}://{{hostname}}/v1.0/endpoint/default/userinfo",
 							"protocol": "{{scheme}}",
 							"host": [
 								"{{hostname}}"
 							],
 							"path": [
-								"oidc",
+								"v1.0",
 								"endpoint",
 								"default",
 								"userinfo"
